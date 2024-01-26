@@ -4,6 +4,11 @@ services:
     build: ./frontend
     ports:
       - '3000:3000'
+    volumes:
+      - /app/node_modules # This command preserves node_modules in image from being overwritten 
+      - ./frontend:/app # This command copies the relative folder /frontend to the absolute path in the image /app. Angel: wouldn´t it be safe to just copy "public" and "src" folders? 
+    environment:
+      - CHOKIDAR_USEPOLLING=true
   api:
     build: ./api
     ports:
