@@ -23,6 +23,9 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: rotelinsen
+    volumes:
+    # Mapping of mongodb volumes. After : comes the folder of the mongo container that we want to persist at the volume 
+      - mongodb_data_for_images_gallery:/data/db
   mongo-express:
     image: mongo-express
     restart: always
@@ -36,3 +39,5 @@ services:
     # depends_on: make mongo-express start after mongo 
     depends_on:
       - mongo 
+volumes:
+  mongodb_data_for_images_gallery:
