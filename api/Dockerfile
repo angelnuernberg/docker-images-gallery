@@ -21,6 +21,11 @@ RUN pipenv requirements > requirements.txt
 # Install globally all dependencies 
 RUN pip install -r requirements.txt 
 
+# I include installation of ping 
+RUN apt-get update -y 
+RUN apt-get install -y iputils-ping 
+# hi there
+
 # copy all remaining application files of the application folder 
 # For optimization the copy of the rest files take place after the instructions 
 # for intalling the dependencies

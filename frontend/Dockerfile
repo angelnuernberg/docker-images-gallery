@@ -9,6 +9,10 @@ RUN npm install --silent
 # During installation of al project dependencies using NPM, node_modules
 # will be created inside of the Docker image 
 
+# I include installation of ping 
+RUN apk upgrade
+RUN apk add util-linux
+
 COPY . ./ 
 
 CMD ["npm", "start"]
