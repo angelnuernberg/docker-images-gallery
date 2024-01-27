@@ -24,7 +24,7 @@ RUN pip install -r requirements.txt
 # copy all remaining application files of the application folder 
 # For optimization the copy of the rest files take place after the instructions 
 # for intalling the dependencies
-# > ATTENTION KEY SECURITY : .env.local is also copied into the Image!! 
+# > ATTENTION KEY SECURITY : .env.local and .venv (which is not needed) is also copied into the Image!! 
 COPY . ./ 
 
 
